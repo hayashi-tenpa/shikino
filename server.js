@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 // ミドルウェアの設定
 app.use(express.static(path.join(__dirname, 'public')));
@@ -55,7 +55,7 @@ ${message}
 
 // ルートパスのハンドリング
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 // プライバシーポリシーページのルート
@@ -67,6 +67,22 @@ app.get('/privacy', (req, res) => {
 app.get('/terms', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'terms.html'));
 });
+
+// 会社案内ページのルート
+app.get('/overview', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'overview.html'));
+});
+
+// サービスページのルート
+app.get('/services', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'services.html'));
+});
+
+//お問い合わせのルート
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
