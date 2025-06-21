@@ -248,6 +248,76 @@ footer .btn-box a {
     .hero-img {
         max-width: 100%;
     }
+
+    /* ====== ヘッダー修正箇所 ====== */
+    .header-content {
+        padding: 10px 20px; /* モバイルでの上下パディングを減らす */
+        gap: 10px; /* 要素間のギャップも減らす */
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem; /* ロゴの文字サイズを小さく */
+        text-align: center;
+    }
+
+    .header-contact {
+        text-align: center;
+        align-items: center;
+    }
+
+    .phone-number {
+        font-size: 1.2rem; /* 電話番号の文字サイズをさらに小さく */
+    }
+
+    .contact-label,
+    .business-hours {
+        font-size: 0.8rem; /* ラベルと営業時間の文字も小さめに */
+    }
+
+    .main-nav {
+        align-self: center;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column; /* 縦並びに変更 */
+        gap: 10px; /* 間隔を調整 */
+        align-items: center; /* 中央寄せ */
+    }
+    /* ============================ */
+
+    .overview-table th,
+    .overview-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .overview-table th {
+        border-bottom: none;
+    }
+
+    .service-container {
+        padding: 20px 15px;
+    }
+    
+    .service-section {
+        padding: 20px;
+    }
+
+    .company-image {
+        max-width: 100%;  /* モバイル表示時は画面幅に合わせる */
+    }
+
+    .overview-welcome {
+        font-size: 1.5rem;  /* モバイル時の文字サイズ */
+    }
 }
 
 @media (max-width: 600px) {
@@ -259,6 +329,24 @@ footer .btn-box a {
         padding: 2rem 0;
     }
 }
+
+/* ====== さらに小さなスマホ向け（480px以下）の追加調整 ====== */
+@media (max-width: 480px) {
+    .header-content {
+        padding: 8px 15px; /* さらに小さなスマホでのパディング */
+    }
+    .logo h1 {
+        font-size: 1rem;
+    }
+    .phone-number {
+        font-size: 1rem;
+    }
+    .contact-label,
+    .business-hours {
+        font-size: 0.7rem;
+    }
+}
+/* ========================================================= */
 
 .form-message {
     margin-top: 1rem;
@@ -439,18 +527,6 @@ footer .btn-box a {
     border-radius: 8px;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .overview-table th,
-    .overview-table td {
-        display: block;
-        width: 100%;
-    }
-    
-    .overview-table th {
-        border-bottom: none;
-    }
-}
 
 /* ヘッダーのスタイル */
 .site-header {
@@ -551,38 +627,6 @@ footer .btn-box a {
     background-color: #0066cc;  /* 下線の色 */
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .header-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .logo h1 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .header-contact {
-        text-align: center;
-        align-items: center;
-    }
-
-    .phone-number {
-        font-size: 1.5rem;
-    }
-
-    .main-nav {
-        align-self: center;
-    }
-
-    .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
 /* サービスページのスタイル */
 .service-container {
     max-width: 800px;
@@ -610,17 +654,6 @@ footer .btn-box a {
     margin: 0;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .service-container {
-        padding: 20px 15px;
-    }
-    
-    .service-section {
-        padding: 20px;
-    }
-}
-
 .service-link {
     color: #0066cc;
     text-decoration: none;
@@ -639,12 +672,6 @@ footer .btn-box a {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-    .company-image {
-        max-width: 100%;  /* モバイル表示時は画面幅に合わせる */
-    }
 }
 
 .overview-content {
@@ -680,16 +707,6 @@ footer .btn-box a {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-    .overview-welcome {
-        font-size: 1.5rem;  /* モバイル時の文字サイズ */
-    }
-    
-    .company-image {
-        max-width: 100%;
-    }
 }
 
 .services-title {
