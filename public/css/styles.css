@@ -253,22 +253,26 @@ footer .btn-box a {
     .header-content {
         padding: 10px 20px; /* モバイルでの上下パディングを減らす */
         gap: 10px; /* 要素間のギャップも減らす */
+        /* ヘッダー全体はモバイルで縦並びを維持 */
+        flex-direction: column;
     }
 
     .header-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        /* ロゴと連絡先はモバイルでも横並びにする */
+        flex-direction: row; /* columnからrowに変更 */
+        justify-content: space-between; /* 両端寄せ */
+        align-items: center; /* 垂直中央揃え */
+        gap: 10px; /* 要素間の隙間 */
     }
 
     .logo h1 {
         font-size: 1.2rem; /* ロゴの文字サイズを小さく */
-        text-align: center;
+        text-align: left; /* 左寄せ */
     }
 
     .header-contact {
-        text-align: center;
-        align-items: center;
+        text-align: right;
+        align-items: flex-end; /* 右端に寄せる */
     }
 
     .phone-number {
@@ -281,15 +285,23 @@ footer .btn-box a {
     }
 
     .main-nav {
-        align-self: center;
+        align-self: center; /* ナビゲーション全体は中央寄せ */
     }
 
     .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: column; /* 縦並びに変更 */
-        gap: 10px; /* 間隔を調整 */
-        align-items: center; /* 中央寄せ */
+        /* ★修正点: ナビゲーション項目を横並びに変更 */
+        flex-direction: row;     /* 縦並び (column) から横並び (row) に変更 */
+        flex-wrap: wrap;         /* 画面に収まらない場合に折り返す */
+        justify-content: center; /* 中央寄せ */
+        gap: 10px;               /* 項目間の間隔 */
+        padding: 0;              /* リストのパディングをリセット */
+        margin: 0;               /* リストのマージンをリセット */
+    }
+
+    .main-nav a {
+        /* ナビゲーションリンクのパディングを調整して、タップしやすくする */
+        padding: 8px 12px;
+        white-space: nowrap; /* テキストの折り返しを防ぎ、1行に保つ */
     }
     /* ============================ */
 
@@ -540,56 +552,21 @@ footer .btn-box a {
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* ★デスクトップ版は横並び */
+    justify-content: space-between;
+    align-items: center;
     gap: 15px;
 }
 
 .header-top {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row; /* ★デスクトップ版は横並び */
     align-items: center;
-}
-
-.header-contact {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contact-label {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.2;
-}
-
-.phone-number {
-    margin: 3px 0;
-    font-size: 1.8rem;
-    font-weight: bold;
-    line-height: 1.2;
-}
-
-.phone-number a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.phone-number a:hover {
-    text-decoration: underline;
-}
-
-.business-hours {
-    margin: 3px 0 0;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.2;
+    gap: 20px;
 }
 
 .main-nav {
-    align-self: flex-end;  /* 右寄せ */
-    margin-top: 10px;
+    margin-top: 0; /* ヘッダーがrowになったので調整 */
 }
 
 .main-nav ul {
